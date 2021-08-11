@@ -1,6 +1,6 @@
 @extends('layout.frontend')
 @section('content')
-<div class="mt-5 md:mt-0 w-2/6" >
+<div class="mt-5 w-full mx-5 md:mt-0  lg:w-2/6" >
     <form action="{{route('login.store')}}" method="POST">
         @csrf
         <div class="shadow overflow-hidden sm:rounded-md ">

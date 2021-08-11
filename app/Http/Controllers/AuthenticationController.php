@@ -30,6 +30,7 @@ class AuthenticationController extends Controller
     public function create()
     {
         Auth::logout();
+        session()->flash('massege','Loged out Successfull');
         return view('Auth.login');
     }
 }

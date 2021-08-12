@@ -15,6 +15,7 @@ class AuthenticationController extends Controller
         ]);
 
         if (Auth::attempt($cradentials)) {
+
            session()->flash('massege','Login Successfull');
            return redirect()->route('login.index');
         }

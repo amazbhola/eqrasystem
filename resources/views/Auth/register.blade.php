@@ -22,12 +22,12 @@
                     </div>
                     <div class="col-span-6">
                         <label for="password" class="block text-sm font-medium text-gray-700">Password</label>
-                        <input type="password" name="password" id="password" autocomplete="password"
+                        <input type="password" name="password" id="password"
                             class="mt-1 py-2 pl-2  outline-none border  focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
                     </div>
                     <div class="col-span-6">
-                        <label for="password" class="block text-sm font-medium text-gray-700">Confirm Password</label>
-                        <input type="password" name="password" id="password" autocomplete="password"
+                        <label for="password_confirmation" class="block text-sm font-medium text-gray-700">Confirm Password</label>
+                        <input type="password" name="password_confirmation" id="password_confirmation"
                             class="mt-1 py-2 pl-2 outline-none border  focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
                     </div>
                 </div>

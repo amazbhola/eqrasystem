@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>@yield('title')</title>
     <link href="{{ mix('/css/app.css') }}" rel="stylesheet" />
     <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
     <script src="{{ mix('/js/app.js') }}" defer></script>
@@ -44,7 +44,7 @@
             @endauth
             @guest
             <div class="absolute z-50  bg-white shadow-lg w-48 mt-2 right-0 py-2 rounded-md">
-                <div class="font-semibold text-sm rounded-md text-gray-600 px-4 py-3 ">Login</div>
+                <a href="{{route('login.create')}}" class="font-semibold text-sm rounded-md text-gray-600 px-4 py-3 ">Logout</a>
             </div>
             @endguest
          </div>
@@ -66,17 +66,23 @@
         </div>
         <div class="flex flex-col justify-between flex-grow">
             <div class="py-5">
-                <a class="flex items-center border-l-4 border-blue-600 px-4 py-3 mb-1 text-white bg-gray-900" href="">
+                <a class="flex items-center border-l-4 border-blue-600 px-4 py-3 mb-1 text-white bg-gray-900" href="{{route('login.index')}}">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-3 " fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
                       </svg>
                       Dashboard
                 </a>
-                <a class="flex items-center border-l-4 hover:border-blue-600 px-4 py-3 mb-1 text-white hover:bg-gray-900 border-transparent transition" href="">
+                <a class="flex items-center border-l-4 hover:border-blue-600 px-4 py-3 mb-1 text-white hover:bg-gray-900 border-transparent transition" href="{{route('tender.create')}}">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 13h6m-3-3v6m5 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
                       </svg>
-                      Add Post
+                      Add Tender
+                </a>
+                <a class="flex items-center border-l-4 hover:border-blue-600 px-4 py-3 mb-1 text-white hover:bg-gray-900 border-transparent transition" href="{{route('method.create')}}">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 13h6m-3-3v6m5 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                      </svg>
+                      Add Method
                 </a>
                 <a class="flex items-center border-l-4 lg:hidden hover:border-blue-600 px-4 py-3 mb-1 text-white hover:bg-gray-900 border-transparent transition" href="{{route('login.create')}}">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">

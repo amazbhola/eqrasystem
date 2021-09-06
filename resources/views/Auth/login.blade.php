@@ -1,4 +1,7 @@
 @extends('layout.frontend')
+@section('title')
+    User Login
+@endsection
 @section('content')
 <div class="mt-5 w-full mx-5 md:mt-0  lg:w-2/6" >
     <form action="{{route('login.store')}}" method="POST">

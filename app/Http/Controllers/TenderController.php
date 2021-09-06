@@ -3,6 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\Tender as RequestsTender;
+use App\Http\Requests\TenderRequest;
+use App\Models\Department;
+use App\Models\Location;
+use App\Models\Method;
 use App\Models\Tender;
 use Illuminate\Http\Request;
 
@@ -15,7 +19,7 @@ class TenderController extends Controller
      */
     public function index()
     {
-        //
+        $data=[];
     }
 
     /**
@@ -25,7 +29,11 @@ class TenderController extends Controller
      */
     public function create()
     {
-        //
+        $data=[];
+        $data['locations']=Location::all();
+        $data['departments']=Department::all();
+        $data['methods']=Method::all();
+        return view('Backend.tenderform',$data);
     }
 
     /**
@@ -34,9 +42,27 @@ class TenderController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(RequestsTender $request)
+    public function store(TenderRequest $request)
     {
-        //
+
+
+        Tender::create([
+            'tender_id' => $request->tender_id,
+            'description' => $request->description,
+            'document_price' => $request->document_price,
+            'tender_security' => $request->tender_security,
+            'date' => $request->date,
+            'department_id' => $request->department_id,
+            'method_id' => $request->method_id,
+            'location_id' => $request->location_id,
+            'similar' => $request->similar,
+            'turnover' => $request->turnover,
+            'liquid' => $request->liquid,
+            'tender_capacity' => $request->tender_capacity,
+            'other' => $request->other
+        ]);
+
+        return redirect()->back()->with('massege','Tender data insert successfully');
     }
 
     /**
@@ -47,7 +73,10 @@ class TenderController extends Controller
      */
     public function show(Tender $tender)
     {
-        //
+        // dd($tender);
+        $data=[];
+        $data['tender']= Tender::where('id',$tender->id)->first();
+        return view('frontend.singletender',$data);
     }
 
     /**

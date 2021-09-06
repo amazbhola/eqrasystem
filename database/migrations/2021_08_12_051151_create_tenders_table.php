@@ -15,13 +15,14 @@ class CreateTendersTable extends Migration
     {
         Schema::create('tenders', function (Blueprint $table) {
             $table->id();
-            $table->string('tender_id',128)->unique();
-            $table->string('description',128);
+            $table->integer('tender_id')->unique();
+            $table->longText('description');
             $table->integer('document_price');
             $table->integer('tender_security');
-            $table->string('department');
-            $table->string('method');
-            $table->string('location');
+            $table->dateTime('date');
+            $table->integer('department_id');
+            $table->integer('method_id');
+            $table->integer('location_id');
             $table->string('similar')->nullable();
             $table->string('turnover')->nullable();
             $table->string('liquid');
@@ -30,8 +31,8 @@ class CreateTendersTable extends Migration
             $table->string('media')->nullable();
             $table->unsignedBigInteger('user_id')->nullable();
             $table->timestamp('email_verified_at')->nullable();
-            $table->foreign('user_id')->references('id')->on('users')->cascadeOnDelete();
             $table->timestamps();
+            $table->foreign('user_id')->references('id')->on('users')->cascadeOnDelete();
 
         });
     }

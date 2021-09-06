@@ -2,17 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\LoginRequest;
-use App\Http\Requests\User as RequestsUser;
-use App\Models\User;
-use Exception;
-use Illuminate\Auth\Events\Registered;
-use Illuminate\Auth\Events\Validated;
+use App\Models\Method;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Log;
-
-
-class UsersController extends Controller
+use App\Models\Tender;
+class FrontendController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -22,13 +15,12 @@ class UsersController extends Controller
     public function index()
     {
         $data=[];
-       return view('Auth.login',$data);
+        $data['tenders']= Tender::with('method','department','location')->paginate();
+
+        // dd($data);
+        return view('welcome',$data);
     }
 
-    public function authonticate(LoginRequest $request)
-    {
-
-    }
     /**
      * Show the form for creating a new resource.
      *
@@ -36,8 +28,7 @@ class UsersController extends Controller
      */
     public function create()
     {
-        $data=[];
-        return view('Auth.register',$data);
+        //
     }
 
     /**
@@ -46,25 +37,9 @@ class UsersController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(RequestsUser $request)
+    public function store(Request $request)
     {
-
-
-        try {
-           $user = User::create([
-                'email'=>$request->input('email'),
-                'password'=>bcrypt($request->input('password')),
-                'name'=>$request->input('name')
-            ]);
-             event(new Registered($user));
-             session()->flash('massege','User Registered Successfully');
-            return redirect()->route('user.index');
-        } catch (Exception $e) {
-            Log::error($e->getMessage());
-            return redirect()->back();
-        }
-
-
+        //
     }
 
     /**
@@ -75,7 +50,7 @@ class UsersController extends Controller
      */
     public function show($id)
     {
-        //
+
     }
 
     /**

@@ -1,4 +1,7 @@
 @extends('layout.frontend')
+@section('title')
+    User Register
+@endsection
 @section('content')
 
 <div class="mt-5 mx-5 w-full  md:mt-0 md:col-span-2 lg:w-3/6">

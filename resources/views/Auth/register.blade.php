@@ -9,7 +9,7 @@
     <form action="{{route('user.store')}}" method="post">
         @csrf
         <div class="shadow overflow-hidden rounded-md ">
-            <h2 class="font-bold text-4xl py-4 bg-indigo-600 text-center text-white">Register User</h2>
+            <h2 class="font-bold text-4xl py-4 bg-gray-800 text-center text-white">Register User</h2>
             @include('Partials._alert')
             <div class="px-4 py-5 bg-white sm:p-6">
                 <div class="grid grid-cols-6 gap-6 space-y-2 ">
@@ -36,13 +36,13 @@
                 </div>
                 <div class="px-4 py-3 bg-gray-50 text-right sm:px-6">
                     <button type="submit"
-                        class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 mb-2">
+                        class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-red-500 hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-900 mb-2">
                         Signup
                     </button>
                 </div>
 
                 <div class="">
-                    <a class="text-indigo-500 px-2" href="{{ route('user.index') }}"> -> For Login</a>
+                    <a class="text-gray-800 px-2" href="{{ route('user.index') }}"> -> For Login</a>
                 </div>
             </div>
         </div>

@@ -1,6 +1,6 @@
 @extends('frontend.layout')
 @section('title')
-    Livetenderbd.com
+    livetenderbd.com
 @endsection
 @section('header')
     <header class="relative z-50 w-full h-24">
@@ -8,15 +8,17 @@
             class="container flex items-center justify-center h-full max-w-6xl px-8 mx-auto sm:justify-between xl:px-0">
 
             <a href="/" class="relative flex items-center inline-block h-5 h-full font-black leading-none">
-                <svg class="w-auto h-6 text-indigo-600 fill-current" viewBox="0 0 194 116"
+                {{-- <svg class="w-auto h-6 text-indigo-600 fill-current" viewBox="0 0 194 116"
                     xmlns="http://www.w3.org/2000/svg">
                     <g fill-rule="evenodd">
                         <path
                             d="M96.869 0L30 116h104l-9.88-17.134H59.64l47.109-81.736zM0 116h19.831L77 17.135 67.088 0z" />
                         <path d="M87 68.732l9.926 17.143 29.893-51.59L174.15 116H194L126.817 0z" />
                     </g>
-                </svg>
-                <span class="ml-3 text-xl text-gray-800">LivetenderBd<span class="text-pink-500">.</span></span>
+                </svg> --}}
+                <img class="w-auto h-10" src="{{asset('image/live tender.png')}}" alt="">
+
+                {{-- <span class="ml-3 text-xl text-gray-800">LivetenderBd<span class="text-pink-500">.</span></span> --}}
             </a>
 
             <nav id="nav"
@@ -48,12 +50,12 @@
                     viewBox="0 0 818 815" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                     <defs>
                         <linearGradient x1="0%" y1="0%" x2="100%" y2="100%" id="c">
-                            <stop stop-color="#E614F2" offset="0%" />
-                            <stop stop-color="#FC3832" offset="100%" />
+                            <stop stop-color="#ED1C24" offset="0%" />
+                            <stop stop-color="#ED1C24" offset="100%" />
                         </linearGradient>
                         <linearGradient x1="0%" y1="0%" x2="100%" y2="100%" id="f">
-                            <stop stop-color="#657DE9" offset="0%" />
-                            <stop stop-color="#1C0FD7" offset="100%" />
+                            <stop stop-color="#010101" offset="0%" />
+                            <stop stop-color="#010101" offset="100%" />
                         </linearGradient>
                         <filter x="-4.7%" y="-3.3%" width="109.3%" height="109.3%" filterUnits="objectBoundingBox"
                             id="a">

@@ -9,7 +9,7 @@
             <p class="pr-0 mb-8 text-base text-gray-600 sm:text-lg xl:text-xl lg:pr-20">Are you ready to start your
                 adventure and start building the next greatest Tender app on the market?</p>
             <a href="#_"
-                class="relative self-start inline-block w-auto px-8 py-4 mx-auto mt-0 text-base font-bold text-white bg-indigo-600 border-t border-gray-200 rounded-md shadow-xl sm:mt-1 fold-bold lg:mx-0">Signup
+                class="relative self-start inline-block w-auto px-8 py-4 mx-auto mt-0 text-base font-bold text-white bg-red-500 border-t border-gray-200 rounded-md shadow-xl sm:mt-1 fold-bold lg:mx-0">Signup
                 Today!</a>
             <!-- Integrates with section -->
             <div class="flex-col hidden mt-12 sm:flex lg:mt-24">
@@ -74,8 +74,8 @@
                 xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                 <defs>
                     <linearGradient x1="100%" y1="0%" x2="4.48%" y2="0%" id="linearGradient-1">
-                        <stop stop-color="#5C54DB" offset="0%" />
-                        <stop stop-color="#6A82E7" offset="100%" />
+                        <stop stop-color="#000000" offset="0%" />
+                        <stop stop-color="#000000" offset="100%" />
                     </linearGradient>
                     <filter x="-9.3%" y="-6.7%" width="118.7%" height="118.7%" filterUnits="objectBoundingBox"
                         id="filter-3">

@@ -9,6 +9,8 @@
         you to build your TailwindCSS from the source.
         https://tailwindcss.com/docs/installation
     -->
+    <link rel="icon" href="{{ asset('image/fabicon.png') }}">
+
     <link href="{{ mix('/css/app.css') }}" rel="stylesheet" />
     <script src="{{ mix('/js/app.js') }}" defer></script>
     <!-- Small CSS to Hide elements at 1520px size -->

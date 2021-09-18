@@ -10,16 +10,21 @@
                     </marquee>
                 </h2>
 
-                <div class="flex items-end justify-center"></div>
+                <div class="flex items-end justify-center">
+                    <div class="bg-white shadow p-2 flex rounded-xl">
+                        <input class="w-full rounded p-2 mr-1 "  id="search" type="text" placeholder="Search Tender"
+                            name="search">
+                    </div>
+                </div>
             </div>
 
-            <div class="flex flex-col-reverse justify-between sm:flex-row">
-                <div class="w-full  grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-4">
+            <div class="flex flex-col-reverse justify-between sm:flex-row ">
+                <div class="w-full  grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-4 " id="myTable">
                     {{-- {{dd($tenders)}} --}}
 
                     @foreach ($tenders as $tender)
-                        <div class="w-full my-6">
-                            <a href="{{route('tender.show',$tender->id)}}">
+                        <div class="w-full my-6" id="bloks">
+                            <a href="{{ route('tender.show', $tender->id) }}">
                                 <div class="shadow-xl overflow-hidden rounded-md ">
                                     <h2
                                         class="flex justify-between items-center font-bold text-xl py-2 px-4 bg-gradient-to-t from-gray-900 to-gray-700 text-center text-white">
@@ -29,59 +34,81 @@
                                             text-xs">{{ $tender->method->name }}</span>
                                     </h2>
 
-                                        <div class=" flex items-center justify-center">
+                                    <div class=" flex items-center justify-center">
 
-                                            <div class="max-w-4xl  bg-white w-full rounded-lg shadow-xl">
+                                        <div class="max-w-4xl  bg-white w-full rounded-lg shadow-xl">
 
-                                                <div>
-                                                    <div class="md:grid md:grid-cols-4 hover:bg-gray-50 md:space-y-0 space-y-1 p-2 border-b">
-                                                        <p class="text-gray-600">
-                                                           Work Name :
-                                                        </p>
-                                                        <p class="md:col-span-3">
-                                                            {{ Str::substr($tender->description, 0, 130) }}
-                                                        </p>
-                                                    </div>
-                                                    <div class="md:grid md:grid-cols-4 hover:bg-gray-50 md:space-y-0 space-y-1 p-2 border-b">
-                                                        <p class="text-gray-600">
-                                                           Department :
-                                                        </p>
-                                                        <p class="md:col-span-3">
-                                                            {{ $tender->department->name }}
-                                                        </p>
-                                                    </div>
-                                                    <div class="md:grid md:grid-cols-4 hover:bg-gray-50 md:space-y-0 space-y-1 p-2 border-b">
-                                                        <p class="text-gray-600">
-                                                            Location :
-                                                        </p>
-                                                        <p class="md:col-span-3">
-                                                            {{ $tender->location->name }}
-                                                        </p>
-                                                    </div>
-                                                    <div class="md:grid md:grid-cols-4 hover:bg-gray-50 md:space-y-0 space-y-1 p-2 border-b">
-                                                        <p class="text-gray-600">
-                                                            Last Selling Date :
-                                                        </p>
-                                                        <p class="md:col-span-3">
-                                                            {{date('d-m-Y', strtotime($tender->date));}}
-                                                        </p>
-                                                    </div>
-                                                    <div class="text-red-500 float-right mr-4 my-4">Click Details...</div>
-
-
+                                            <div>
+                                                <div
+                                                    class="md:grid md:grid-cols-4 hover:bg-gray-50 md:space-y-0 space-y-1 p-2 border-b">
+                                                    <p class="text-gray-600">
+                                                        Work Name :
+                                                    </p>
+                                                    <p class="md:col-span-3">
+                                                        {{ Str::substr($tender->description, 0, 130) }}
+                                                    </p>
                                                 </div>
-                                            </div>
+                                                <div
+                                                    class="md:grid md:grid-cols-4 hover:bg-gray-50 md:space-y-0 space-y-1 p-2 border-b">
+                                                    <p class="text-gray-600">
+                                                        Department :
+                                                    </p>
+                                                    <p class="md:col-span-3">
+                                                        {{ $tender->department->name }}
+                                                    </p>
+                                                </div>
+                                                <div
+                                                    class="md:grid md:grid-cols-4 hover:bg-gray-50 md:space-y-0 space-y-1 p-2 border-b">
+                                                    <p class="text-gray-600">
+                                                        Location :
+                                                    </p>
+                                                    <p class="md:col-span-3">
+                                                        {{ $tender->location->name }}
+                                                    </p>
+                                                </div>
+                                                <div
+                                                    class="md:grid md:grid-cols-4 hover:bg-gray-50 md:space-y-0 space-y-1 p-2 border-b">
+                                                    <p class="text-gray-600">
+                                                        Last Selling Date :
+                                                    </p>
+                                                    <p class="md:col-span-3">
+                                                        {{ date('d-m-Y', strtotime($tender->date)) }}
+                                                    </p>
+                                                </div>
+                                                <div class="text-red-500 float-right mr-4 my-4">Click Details...</div>
 
+
+                                            </div>
                                         </div>
+
+                                    </div>
 
 
                                 </div>
                             </a>
                         </div>
                     @endforeach
-                    {{ $tenders->links() }}
+
+                        {{-- {{ $tenders->links() }} --}}
+
+
                 </div>
             </div>
+
         </div>
     </div>
 </div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+ <script>
+$(document).ready(function(){
+  $("#search").on("keyup", function() {
+    var value = $(this).val().toLowerCase();
+    $("#myTable #bloks").filter(function() {
+      $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+    });
+  });
+});
+</script>
+
+

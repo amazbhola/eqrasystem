@@ -28,7 +28,7 @@
                 <div class="flex flex-col block w-full font-medium border-t border-gray-200 md:hidden">
                     <a href="#_" class="w-full py-2  font-bold text-center text-pink-500">Login</a>
                     <a href="#_"
-                        class="relative inline-block w-full px-5 py-3 text-sm leading-none text-center text-white bg-indigo-700 fold-bold">Get
+                        class="relative inline-block w-full px-5 md:py-3 text-sm leading-none text-center text-white bg-indigo-700 fold-bold">Get
                         Started</a>
                 </div>
             </nav>
@@ -38,7 +38,7 @@
                 <a href="#_"
                     class="relative z-40 px-3 py-2 mr-0 text-sm font-bold text-pink-500 md:px-5 lg:text-indigo-500 sm:mr-3 md:mt-0">Login</a>
                 <a href="#_"
-                    class="relative z-40 inline-block w-auto h-full px-5 py-3 text-sm font-bold leading-none text-white transition-all transition duration-100 duration-300 bg-indigo-700 rounded shadow-md fold-bold lg:bg-white lg:text-indigo-700 sm:w-full lg:shadow-none hover:shadow-xl">Get
+                    class="relative z-40 inline-block w-auto h-full px-5 md:py-3 text-sm font-bold leading-none text-white transition-all transition duration-100 duration-300 bg-indigo-700 rounded shadow-md fold-bold lg:bg-white lg:text-indigo-700 sm:w-full lg:shadow-none hover:shadow-xl">Get
                     Started</a>
 
             </div>
@@ -56,9 +56,9 @@
     Livetenderbd.com
 @endsection
 @section('content')
-    <div class="flex p-1 py-4 bg-white place-content-center">
-        <div class="w-4/5 overflow-hidden border border-gray-200 rounded-lg">
-            <h1 class="text-center font-bold text-2xl py-5 underline text-indigo-700 uppercase">Tender Details</h1>
+    <div class="flex p-1 py-4 bg-gray-100 place-content-center">
+        <div class="w-full sm:w-4/5 overflow-hidden border border-gray-300 rounded-lg shadow-xl ">
+            <h1 class="text-center font-bold text-2xl py-5 underline text-red-500 uppercase">Tender Details</h1>
 
             <div class="w-full ">
                 <div class="p-10 pb-6">
@@ -67,14 +67,14 @@
                             <label class="block mb-2 text-xs font-bold tracking-wide text-gray-700 capitalize"
                                 for="grid-first-name"> Tender id </label>
                             <label
-                                class="block w-full px-4 py-3 leading-tight text-gray-700 bg-gray-200 border border-gray-200 rounded appearance-none focus:outline-none focus:bg-white focus:border-gray-500">{{ $tender->tender_id }}</label>
+                                class="block w-full px-4 md:py-3 leading-tight text-gray-700 bg-gray-200 border border-gray-200 rounded appearance-none focus:outline-none focus:bg-white focus:border-gray-500">{{ $tender->tender_id }}</label>
 
                         </div>
                         <div class="w-full px-3 md:w-1/2">
                             <label class="block mb-2 text-xs font-bold tracking-wide text-gray-700 capitalize"
                                 for="grid-last-name"> Document Price </label>
                             <label
-                                class="block w-full px-4 py-3 leading-tight text-gray-700 bg-gray-200 border border-gray-200 rounded appearance-none focus:outline-none focus:bg-white focus:border-gray-500">{{ $tender->document_price }}</label>
+                                class="block w-full px-4 md:py-3 leading-tight text-gray-700 bg-gray-200 border border-gray-200 rounded appearance-none focus:outline-none focus:bg-white focus:border-gray-500">{{ $tender->document_price }}</label>
                         </div>
                     </div>
                     <div class="flex flex-wrap mb-2 -mx-3">
@@ -82,20 +82,20 @@
                             <label class="block mb-2 text-xs font-bold tracking-wide text-gray-700 capitalize"
                                 for="grid-first-name"> Last Selling Date </label>
                             <label
-                                class="block w-full px-4 py-3 mb-3 leading-tight text-gray-700 bg-gray-200 border border-gray-200 rounded appearance-none focus:outline-none focus:bg-white">{{date('d-m-Y', strtotime($tender->date));}}</label>
+                                class="block w-full px-4 md:py-3 mb-3 leading-tight text-gray-700 bg-gray-200 border border-gray-200 rounded appearance-none focus:outline-none focus:bg-white">{{date('d-m-Y', strtotime($tender->date));}}</label>
                         </div>
                         <div class="w-full px-3 md:w-1/2">
                             <label class="block mb-2 text-xs font-bold tracking-wide text-gray-700 capitalize"
                                 for="grid-last-name"> Tender Security </label>
                             <label
-                                class="block w-full px-4 py-3 leading-tight text-gray-700 bg-gray-200 border border-gray-200 rounded appearance-none focus:outline-none focus:bg-white focus:border-gray-500">{{ $tender->tender_security }}</label>
+                                class="block w-full px-4 md:py-3 leading-tight text-gray-700 bg-gray-200 border border-gray-200 rounded appearance-none focus:outline-none focus:bg-white focus:border-gray-500">{{ $tender->tender_security }}</label>
                         </div>
                     </div>
 
                     <label>
                         <span class="block mb-2 text-xs font-bold tracking-wide text-gray-700 capitalize">Description</span>
                         <label
-                            class="block w-full px-4 py-3 mt-1 mb-2 text-gray-700 bg-gray-200 border border-gray-200 rounded form-textarea focus:outline-none"
+                            class="block w-full px-4 md:py-3 mt-1 mb-2 text-gray-700 bg-gray-200 border border-gray-200 rounded form-textarea focus:outline-none"
                             rows="4">{{ $tender->description }}</label>
                     </label>
                     <div class="flex flex-wrap m-6 mb-2 -mx-3">
@@ -104,7 +104,7 @@
                                 for="grid-state"> Department </label>
                             <div class="relative">
                                 <label
-                                    class="block w-full px-4 py-3 pr-8 leading-tight text-gray-700 bg-gray-200 border border-gray-200 rounded appearance-none focus:outline-none focus:bg-white focus:border-gray-500">{{ $tender->department->name }}</label>
+                                    class="block w-full px-4 md:py-3 pr-8 leading-tight text-gray-700 bg-gray-200 border border-gray-200 rounded appearance-none focus:outline-none focus:bg-white focus:border-gray-500">{{ $tender->department->name }}</label>
 
                             </div>
                         </div>
@@ -113,7 +113,7 @@
                                 for="grid-state"> Location </label>
                             <div class="relative">
                                 <label
-                                    class="block w-full px-4 py-3 pr-8 leading-tight text-gray-700 bg-gray-200 border border-gray-200 rounded appearance-none focus:outline-none focus:bg-white focus:border-gray-500" ">{{ $tender->location->name }}
+                                    class="block w-full px-4 md:py-3 pr-8 leading-tight text-gray-700 bg-gray-200 border border-gray-200 rounded appearance-none focus:outline-none focus:bg-white focus:border-gray-500" ">{{ $tender->location->name }}
                                             </label>
                                         </div>
                                     </div>
@@ -122,7 +122,7 @@
                                         for="grid-state"> Method </label>
                                     <div class="relative">
                                         <label
-                                            class="block w-full px-4 py-3 pr-8 leading-tight text-gray-700 bg-gray-200 border border-gray-200 rounded appearance-none focus:outline-none focus:bg-white focus:border-gray-500">{{ $tender->method->name }}</label>
+                                            class="block w-full px-4 md:py-3 pr-8 leading-tight text-gray-700 bg-gray-200 border border-gray-200 rounded appearance-none focus:outline-none focus:bg-white focus:border-gray-500">{{ $tender->method->name }}</label>
                                     </div>
                             </div>
                         </div>
@@ -131,19 +131,19 @@
                                 <label class="block mb-2 text-xs font-bold tracking-wide text-gray-700 capitalize"
                                     for="grid-state"> Similar </label>
                                 <label
-                                    class="block w-full px-4 py-3 leading-tight text-gray-700 bg-gray-200 border border-gray-200 rounded appearance-none focus:outline-none focus:bg-white focus:border-gray-500">{{ $tender->similar }}</label>
+                                    class="block w-full px-4 md:py-3 leading-tight text-gray-700 bg-gray-200 border border-gray-200 rounded appearance-none focus:outline-none focus:bg-white focus:border-gray-500">{{ $tender->similar }}</label>
                             </div>
                             <div class="w-full px-3 mb-2 md:w-1/3 md:mb-0">
                                 <label class="block mb-2 text-xs font-bold tracking-wide text-gray-700 capitalize"
                                     for="grid-state"> Turnover </label>
                                 <label
-                                    class="block w-full px-4 py-3 leading-tight text-gray-700 bg-gray-200 border border-gray-200 rounded appearance-none focus:outline-none focus:bg-white focus:border-gray-500">{{ $tender->turnover }}</label>
+                                    class="block w-full px-4 md:py-3 leading-tight text-gray-700 bg-gray-200 border border-gray-200 rounded appearance-none focus:outline-none focus:bg-white focus:border-gray-500">{{ $tender->turnover }}</label>
                             </div>
                             <div class="w-full px-3 mb-2 md:w-1/3 md:mb-0">
                                 <label class="block mb-2 text-xs font-bold tracking-wide text-gray-700 capitalize"
                                     for="grid-state"> Liquid </label>
                                 <label
-                                    class="block w-full px-4 py-3 leading-tight text-gray-700 bg-gray-200 border border-gray-200 rounded appearance-none focus:outline-none focus:bg-white focus:border-gray-500">{{ $tender->liquid }}</label>
+                                    class="block w-full px-4 md:py-3 leading-tight text-gray-700 bg-gray-200 border border-gray-200 rounded appearance-none focus:outline-none focus:bg-white focus:border-gray-500">{{ $tender->liquid }}</label>
                             </div>
                         </div>
                         <div class="flex flex-wrap m-6 mb-2 -mx-3">
@@ -151,25 +151,25 @@
                                 <label class="block mb-2 text-xs font-bold tracking-wide text-gray-700 capitalize"
                                     for="grid-state"> Tender Capacity </label>
                                 <label
-                                    class="block w-full px-4 py-3 leading-tight text-gray-700 bg-gray-200 border border-gray-200 rounded appearance-none focus:outline-none focus:bg-white focus:border-gray-500">{{ $tender->tender_capacity }}</label>
+                                    class="block w-full px-4 md:py-3 leading-tight text-gray-700 bg-gray-200 border border-gray-200 rounded appearance-none focus:outline-none focus:bg-white focus:border-gray-500">{{ $tender->tender_capacity }}</label>
                             </div>
                             <div class="w-full px-3 mb-2 md:w-1/3 md:mb-0">
                                 <label class="block mb-2 text-xs font-bold tracking-wide text-gray-700 capitalize"
                                     for="grid-state"> Other </label>
                                 <label
-                                    class="block w-full px-4 py-3 leading-tight text-gray-700 bg-gray-200 border border-gray-200 rounded appearance-none focus:outline-none focus:bg-white focus:border-gray-500">{{ $tender->other }}</label>
+                                    class="block w-full px-4 md:py-3 leading-tight text-gray-700 bg-gray-200 border border-gray-200 rounded appearance-none focus:outline-none focus:bg-white focus:border-gray-500">{{ $tender->other }}</label>
                             </div>
                             <div class="w-full px-3 mb-2 md:w-1/3 md:mb-0">
                                 <label class="block mb-2 text-xs font-bold tracking-wide text-gray-700 capitalize"
                                     for="grid-state"> Note </label>
                                 <label
-                                    class="block w-full px-4 py-3 leading-tight text-gray-700 bg-gray-200 border border-gray-200 rounded appearance-none focus:outline-none focus:bg-white focus:border-gray-500">{{ $tender->note }}
+                                    class="block w-full px-4 md:py-3 leading-tight text-gray-700 bg-gray-200 border border-gray-200 rounded appearance-none focus:outline-none focus:bg-white focus:border-gray-500">{{ $tender->note }}
                                 </label>
                             </div>
                         </div>
                     </div>
-                    <div class="flex items-center justify-between p-3 text-center bg-gray-200">
-                        <div class="relative flex flex-col items-start mr-1 text-sm">
+                    <div class="flex items-center justify-between p-3 text-center bg-gray-900 ">
+                        <div class="relative flex flex-col items-start mr-1 text-sm ">
                             <!--  -->
                         </div>
 

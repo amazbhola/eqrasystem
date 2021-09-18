@@ -29,9 +29,9 @@ class TenderFactory extends Factory
             'document_price'=>$this->faker->randomDigit,
             'date'=>$this->faker->date('Y-m-d'),
             'tender_security'=>$this->faker->randomDigit,
-            'department_id'=>$this->faker->numberBetween(1,100),
-            'method_id'=>$this->faker->numberBetween(1,100),
-            'location_id'=>$this->faker->numberBetween(1,100),
+            'department_id'=>$this->faker->numberBetween(1,10),
+            'method_id'=>$this->faker->numberBetween(1,10),
+            'location_id'=>$this->faker->numberBetween(1,10),
             'liquid'=>$this->faker->numberBetween(1000,100000),
 
         ];

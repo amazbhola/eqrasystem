@@ -20,6 +20,8 @@ class TenderController extends Controller
     public function index()
     {
         $data=[];
+        $data['tenders']=  Tender::with('location','method','department')->get();
+        return view('Backend.tendertable',$data);
     }
 
     /**

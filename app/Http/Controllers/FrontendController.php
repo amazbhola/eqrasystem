@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Method;
 use Illuminate\Http\Request;
 use App\Models\Tender;
+use Illuminate\Support\Carbon;
 class FrontendController extends Controller
 {
     /**
@@ -14,8 +15,10 @@ class FrontendController extends Controller
      */
     public function index()
     {
+        $current_date = Carbon::now();
         $data=[];
-        $data['tenders']= Tender::with('method','department','location')->paginate();
+
+        $data['tenders']= Tender::with('method','department','location')->orderby('date','asc')->whereDate('date', '>=', $current_date)->get();
 
         // dd($data);
         return view('welcome',$data);

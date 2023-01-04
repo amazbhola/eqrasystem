@@ -24,14 +24,19 @@ class TenderRequest extends FormRequest
     public function rules()
     {
         return [
-            'tender_id'=>'required|integer|unique:tenders,tender_id',
-            'description'=>'required',
-            'document_price'=>'required|integer',
-            'tender_security'=>'required|integer',
-            'department_id'=>'required',
-            'method_id'=>'required',
-            'location_id'=>'required',
-            'liquid'=>'required'
+            'tender_id' => 'required|integer|unique:tenders,tender_id',
+            'description' => 'required',
+            'document_price' => 'required|integer',
+            'date' => 'required|date',
+            'tender_security' => 'required|integer',
+            'department_id' => 'required|integer',
+            'method_id' => 'required|integer',
+            'location_id' => 'required|integer',
+            'similar' => 'nullable',
+            'turnover' => 'nullable',
+            'liquid' => 'nullable',
+            'tender_capacity' => 'required',
+            'other' => 'required'
         ];
     }
 }

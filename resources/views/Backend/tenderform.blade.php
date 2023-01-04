@@ -1,5 +1,8 @@
 @extends('Backend.layout')
 @section('content')
+    {{-- @php
+        dd($tenders);
+    @endphp --}}
     <div class="flex p-1 py-4 bg-white place-content-center">
         <div class="w-4/5 overflow-hidden border border-gray-200 rounded-lg">
             <h1 class="text-center font-bold text-2xl py-5 underline text-indigo-700 uppercase">Add Tender</h1>
@@ -60,7 +63,7 @@
                                     id="grid-state" name="department_id">
                                     <option>Select Departments</option>
                                     @foreach ($departments as $department)
-                                        <option value="{{$department->id}}">{{$department->name}}</option>
+                                        <option value="{{ $department->id }}">{{ $department->name }}</option>
                                     @endforeach
                                 </select>
                                 <div
@@ -82,7 +85,7 @@
                                     id="grid-state" name="location_id">
                                     <option>Select Location</option>
                                     @foreach ($locations as $location)
-                                        <option value="{{$location->id}}" >{{$location->name}}</option>
+                                        <option value="{{ $location->id }}">{{ $location->name }}</option>
                                     @endforeach
                                 </select>
                                 <div
@@ -104,7 +107,7 @@
                                     id="grid-state" name="method_id">
                                     <option>Select Method</option>
                                     @foreach ($methods as $method)
-                                        <option value="{{$method->id}}">{{$method->name}}</option>
+                                        <option value="{{ $method->id }}">{{ $method->name }}</option>
                                     @endforeach
                                 </select>
                                 <div
@@ -124,21 +127,21 @@
                                 for="grid-state"> Similar </label>
                             <input
                                 class="block w-full px-4 py-3 leading-tight text-gray-700 bg-gray-200 border border-gray-200 rounded appearance-none focus:outline-none focus:bg-white focus:border-gray-500"
-                                id="grid-last-name" type="text" placeholder="Doe" name="similar" />
+                                id="grid-last-name" type="text" placeholder="Similar" name="similar" />
                         </div>
                         <div class="w-full px-3 mb-2 md:w-1/3 md:mb-0">
                             <label class="block mb-2 text-xs font-bold tracking-wide text-gray-700 capitalize"
                                 for="grid-state"> Turnover </label>
                             <input
                                 class="block w-full px-4 py-3 leading-tight text-gray-700 bg-gray-200 border border-gray-200 rounded appearance-none focus:outline-none focus:bg-white focus:border-gray-500"
-                                id="grid-last-name" type="text" placeholder="Doe" name="turnover" />
+                                id="grid-last-name" type="text" placeholder="Turnover" name="turnover" />
                         </div>
                         <div class="w-full px-3 mb-2 md:w-1/3 md:mb-0">
                             <label class="block mb-2 text-xs font-bold tracking-wide text-gray-700 capitalize"
                                 for="grid-state"> Liquid </label>
                             <input
                                 class="block w-full px-4 py-3 leading-tight text-gray-700 bg-gray-200 border border-gray-200 rounded appearance-none focus:outline-none focus:bg-white focus:border-gray-500"
-                                id="grid-last-name" type="text" placeholder="Doe" name="liquid" />
+                                id="grid-last-name" type="text" placeholder="Liquid" name="liquid" />
                         </div>
                     </div>
                     <div class="flex flex-wrap m-6 mb-2 -mx-3">
@@ -147,21 +150,22 @@
                                 for="grid-state"> Tender Capacity </label>
                             <input
                                 class="block w-full px-4 py-3 leading-tight text-gray-700 bg-gray-200 border border-gray-200 rounded appearance-none focus:outline-none focus:bg-white focus:border-gray-500"
-                                id="grid-last-name" type="text" placeholder="Doe" name="tender_capacity" />
+                                id="grid-last-name" type="text" placeholder="Tender Capacity"
+                                name="tender_capacity" />
                         </div>
                         <div class="w-full px-3 mb-2 md:w-1/3 md:mb-0">
                             <label class="block mb-2 text-xs font-bold tracking-wide text-gray-700 capitalize"
                                 for="grid-state"> Other </label>
                             <input
                                 class="block w-full px-4 py-3 leading-tight text-gray-700 bg-gray-200 border border-gray-200 rounded appearance-none focus:outline-none focus:bg-white focus:border-gray-500"
-                                id="grid-last-name" type="text" placeholder="Doe" name="other" />
+                                id="grid-last-name" type="text" placeholder="Other" name="other" />
                         </div>
                         <div class="w-full px-3 mb-2 md:w-1/3 md:mb-0">
                             <label class="block mb-2 text-xs font-bold tracking-wide text-gray-700 capitalize"
                                 for="grid-state"> Note </label>
                             <input
                                 class="block w-full px-4 py-3 leading-tight text-gray-700 bg-gray-200 border border-gray-200 rounded appearance-none focus:outline-none focus:bg-white focus:border-gray-500"
-                                id="grid-last-name" type="text" placeholder="Doe" />
+                                id="grid-last-name" type="text" placeholder="Note" />
                         </div>
                     </div>
                 </div>
@@ -177,5 +181,4 @@
             </form>
         </div>
     </div>
-
 @endsection

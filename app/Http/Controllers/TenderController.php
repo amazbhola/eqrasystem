@@ -8,10 +8,17 @@ use App\Models\Department;
 use App\Models\Location;
 use App\Models\Method;
 use App\Models\Tender;
+use App\Repositories\TenderRepository;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\View;
 
 class TenderController extends Controller
 {
+    private $tenderRepository;
+    public function __construct(TenderRepository $tenderRepository)
+    {
+        $this->tenderRepository = $tenderRepository;
+    }
     /**
      * Display a listing of the resource.
      *
@@ -19,9 +26,11 @@ class TenderController extends Controller
      */
     public function index()
     {
-        $data=[];
-        $data['tenders']=  Tender::with('location','method','department')->get();
-        return view('Backend.tendertable',$data);
+
+        $data = [];
+        $data['tenders'] = $this->tenderRepository->getAllData();
+        // $data['tenders'] =  Tender::with('location', 'method', 'department')->get();
+        return view('Backend.tendertable', $data);
     }
 
     /**
@@ -31,11 +40,13 @@ class TenderController extends Controller
      */
     public function create()
     {
-        $data=[];
-        $data['locations']=Location::all();
-        $data['departments']=Department::all();
-        $data['methods']=Method::all();
-        return view('Backend.tenderform',$data);
+        if (View::exists('Backend.tenderform')) {
+            $data = [];
+            $data['departments'] = $this->tenderRepository->getDepartment();
+            $data['locations'] = $this->tenderRepository->getLocation();
+            $data['methods'] = $this->tenderRepository->getMethod();
+            return view('Backend.tenderform', $data);
+        }
     }
 
     /**
@@ -46,25 +57,11 @@ class TenderController extends Controller
      */
     public function store(TenderRequest $request)
     {
-
-
-        Tender::create([
-            'tender_id' => $request->tender_id,
-            'description' => $request->description,
-            'document_price' => $request->document_price,
-            'tender_security' => $request->tender_security,
-            'date' => $request->date,
-            'department_id' => $request->department_id,
-            'method_id' => $request->method_id,
-            'location_id' => $request->location_id,
-            'similar' => $request->similar,
-            'turnover' => $request->turnover,
-            'liquid' => $request->liquid,
-            'tender_capacity' => $request->tender_capacity,
-            'other' => $request->other
-        ]);
-
-        return redirect()->back()->with('massege','Tender data insert successfully');
+        $data = $request->except('_token');
+        $tender = $this->tenderRepository->storeOrUpdate($id = null, $data);
+        if ($tender = true) {
+            return redirect()->back()->with('massege', 'Tender data insert successfully');
+        }
     }
 
     /**
@@ -76,9 +73,9 @@ class TenderController extends Controller
     public function show(Tender $tender)
     {
         // dd($tender);
-        $data=[];
-        $data['tender']= Tender::where('id',$tender->id)->first();
-        return view('frontend.singletender',$data);
+        $data = [];
+        $data['tender'] = Tender::where('id', $tender->id)->first();
+        return view('frontend.singletender', $data);
     }
 
     /**

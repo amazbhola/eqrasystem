@@ -39,7 +39,7 @@ class TenderRepository implements TenderRepositoryInterface
     }
     public function delete($id)
     {
-        return Tender::find($id)->delete();
+        return Tender::findOrFail($id)->delete();
     }
     public function getDepartment()
     {

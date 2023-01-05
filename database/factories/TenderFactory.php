@@ -24,15 +24,15 @@ class TenderFactory extends Factory
     public function definition()
     {
         return [
-            'tender_id'=> $this->faker->unique()->numberBetween(2000,5000),
-            'description'=>$this->faker->text(150),
-            'document_price'=>$this->faker->randomDigit,
-            'date'=>$this->faker->date('Y-m-d'),
-            'tender_security'=>$this->faker->randomDigit,
-            'department_id'=>$this->faker->numberBetween(1,10),
-            'method_id'=>$this->faker->numberBetween(1,10),
-            'location_id'=>$this->faker->numberBetween(1,10),
-            'liquid'=>$this->faker->numberBetween(1000,100000),
+            'tender_id' => $this->faker->unique()->numberBetween(200000, 5000000),
+            'description' => $this->faker->text(150),
+            'document_price' => $this->faker->randomDigit,
+            'date' => $this->faker->dateTimeBetween('-1 days', '+30 days'),
+            'tender_security' => $this->faker->randomDigit,
+            'department_id' => $this->faker->numberBetween(1, 10),
+            'method_id' => $this->faker->numberBetween(1, 10),
+            'location_id' => $this->faker->numberBetween(1, 10),
+            'liquid' => $this->faker->numberBetween(1000, 100000),
 
         ];
     }

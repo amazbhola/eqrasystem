@@ -29,11 +29,11 @@ class CreateTendersTable extends Migration
             $table->string('tender_capacity')->nullable();
             $table->string('other')->nullable();
             $table->string('media')->nullable();
+            $table->string('note')->nullable();
             $table->unsignedBigInteger('user_id')->nullable();
             $table->timestamp('email_verified_at')->nullable();
             $table->timestamps();
             $table->foreign('user_id')->references('id')->on('users')->cascadeOnDelete();
-
         });
     }
 

@@ -4,6 +4,11 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.js"></script>
     <div class="container mx-auto">
+        @if (Session::has('success'))
+            <div class="alert alert-success">
+                {{ Session::get('success') }}
+            </div>
+        @endif
         <div class="flex flex-col">
             <div class="w-full">
                 <div class="p-4 border-b border-gray-200 shadow">
@@ -54,7 +59,13 @@
                                             class="px-4 py-1 text-sm text-white bg-blue-400 rounded">Edit</a>
                                     </td>
                                     <td class="px-6 py-4 text-center">
-                                        <a href="#" class="px-4 py-1 text-sm text-white bg-red-400 rounded">Delete</a>
+                                        <form action="{{ route('tender.destroy', $tender->id) }}" method="post">
+                                            @csrf
+                                            @method('DELETE')
+                                            <button href="#" type="submit"
+                                                class="px-4 py-1 text-sm text-white bg-red-400 rounded">Delete</button>
+                                        </form>
+
                                     </td>
                                 </tr>
                             @endforeach

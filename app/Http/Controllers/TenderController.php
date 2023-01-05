@@ -117,6 +117,12 @@ class TenderController extends Controller
      */
     public function destroy(Tender $tender)
     {
-        //
+
+        if ($this->tenderRepository->delete($tender->id)) {
+            session()->flash('success', 'Tender Delete Successfully');
+            return redirect()->route('tender.index');
+        } else {
+            session()->flash('error', 'Something wrong');
+        }
     }
 }

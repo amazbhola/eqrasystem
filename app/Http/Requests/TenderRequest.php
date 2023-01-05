@@ -35,8 +35,8 @@ class TenderRequest extends FormRequest
             'similar' => 'nullable',
             'turnover' => 'nullable',
             'liquid' => 'nullable',
-            'tender_capacity' => 'required',
-            'other' => 'required'
+            'tender_capacity' => 'nullable',
+            'other' => 'nullable'
         ];
     }
 }

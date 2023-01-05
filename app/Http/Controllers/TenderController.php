@@ -86,7 +86,11 @@ class TenderController extends Controller
      */
     public function edit(Tender $tender)
     {
-        //
+
+
+        return view('Backend.tendereditform', [
+            'tender' => $this->tenderRepository->view($tender->id)
+        ]);
     }
 
     /**
@@ -96,9 +100,13 @@ class TenderController extends Controller
      * @param  \App\Models\Tender  $tender
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Tender $tender)
+    public function update(TenderRequest $request, Tender $tender)
     {
-        //
+        $data = $request->except('_token');
+        $tender = $this->tenderRepository->storeOrUpdate($tender->id, $data);
+        if ($tender = true) {
+            return redirect()->back()->with('massege', 'Tender data update successfully');
+        }
     }
 
     /**

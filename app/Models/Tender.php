@@ -10,7 +10,23 @@ class Tender extends Model
 
     use HasFactory;
 
-    protected  $guarded = [];
+    protected  $fillable = [
+        'tender_id',
+        'description',
+        'document_price',
+        'tender_security',
+        'date',
+        'department_id',
+        'method_id',
+        'location_id',
+        'similar',
+        'turnover',
+        'liquid',
+        'tender_capacity',
+        'media',
+        'media',
+
+    ];
 
 
     public function location()

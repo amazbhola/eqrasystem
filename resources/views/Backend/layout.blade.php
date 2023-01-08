@@ -7,8 +7,10 @@
     <title>@yield('title')</title>
     <link href="{{ mix('/css/app.css') }}" rel="stylesheet" />
     <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
+    @include('Backend.Partials.css')
     <script src="{{ mix('/js/app.js') }}" defer></script>
 
+    @yield('css')
 </head>
 <body class="bg-gray-200 min-h-screen ">
     <div class="w-full h-16 bg-white border-b-1 shadow-md pl-8 lg:pl-80 px-8 fixed flex items-center">
@@ -124,18 +126,8 @@
     <div class="pl-8 lg:pl-80 pt-24 pr-8">
         @yield('content')
     </div>
-
-    <script>
-        document.getElementById('hamburg').addEventListener('click',function () {
-            document.getElementById('sidebar').classList.add('active')
-        })
-        document.getElementById('closer').addEventListener('click',function () {
-            document.getElementById('sidebar').classList.remove('active')
-        })
-        document.getElementById('dropdown').addEventListener('click',function () {
-            document.getElementById('dropdown_content').classList.toggle('hidden')
-        })
-    </script>
+    @include('Backend.Partials.scripts')
+    @yield('scripts')
 
 </body>
 </html>

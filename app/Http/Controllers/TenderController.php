@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\DataTables\TenderDataTable;
 use App\Http\Requests\Tender as RequestsTender;
 use App\Http\Requests\TenderRequest;
 use App\Models\Department;
@@ -24,13 +25,13 @@ class TenderController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(TenderDataTable $dataTable)
     {
-
-        $data = [];
-        $data['tenders'] = $this->tenderRepository->getAllData();
-        // $data['tenders'] =  Tender::with('location', 'method', 'department')->get();
-        return view('Backend.tendertable', $data);
+        return $dataTable->render('Backend.tendertable');
+        // $data = [];
+        // $data['tenders'] = $this->tenderRepository->getAllData();
+        // // $data['tenders'] =  Tender::with('location', 'method', 'department')->get();
+        // return view('Backend.tendertable', $data);
     }
 
     /**

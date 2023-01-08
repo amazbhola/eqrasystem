@@ -2,19 +2,26 @@
 
 namespace App\Http\Controllers;
 
+use App\DataTables\DepartmentDataTable;
 use App\Models\Department;
+use App\Repositories\DepartmentRepository;
 use Illuminate\Http\Request;
 
 class DepartmentController extends Controller
 {
+    private $departmentRepository;
+    public function __construct(DepartmentRepository $departmentRepository)
+    {
+        $this->departmentRepository = $departmentRepository;
+    }
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(DepartmentDataTable $dataTable)
     {
-        //
+        return $dataTable->render('Backend.pages.department.index');
     }
 
     /**
@@ -36,7 +43,7 @@ class DepartmentController extends Controller
     public function store(Request $request)
     {
         Department::create([
-            'name'=> $request->name
+            'name' => $request->name
         ]);
 
         return redirect()->route('tender.create');

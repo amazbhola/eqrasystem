@@ -23,10 +23,11 @@ class TenderDataTable extends DataTable
             ->eloquent($query)
             ->addIndexColumn()
             ->addColumn('action', function($row){
-                $html = '';
-                $html = '<a class="bg-green-700 text-white text-xs rounded-sm hover:bg-green-400 p-1 shadow" href="'.route('department.edit',$row->id).'">Edit</a>';
 
+                $html = '<a class="bg-green-700 text-white text-xs rounded-sm hover:bg-green-400 p-1 shadow" href="'.route('tender.edit',$row->id).'">Edit</a>';
+                $html .= '<a class="bg-green-700 text-xs rounded-sm  p-1 ml-2 shadow" href="'.route('tender.destroy',$row->id).'">Delete</a>';
                 return $html;
+
             });
     }
 
@@ -72,10 +73,10 @@ class TenderDataTable extends DataTable
     {
         return [
 
-            Column::make('DT_RowIndex')->title('SL')->searchable(false)->orderable(false),
-            Column::make('tender_id')->title('Tender ID'),
+            Column::make('DT_RowIndex')->title('SL')->searchable(false)->orderable(false)->addClass('text-center'),
+            Column::make('tender_id')->title('Tender ID')->addClass('text-center'),
             Column::make('description')->title('Work Description'),
-            Column::make('tender_security')->title('Pay Order'),
+            Column::make('tender_security')->title('Pay Order')->addClass('text-center'),
             Column::computed('action')
                   ->exportable(false)
                   ->printable(false)

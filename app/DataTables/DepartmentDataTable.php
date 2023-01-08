@@ -23,9 +23,9 @@ class DepartmentDataTable extends DataTable
             ->eloquent($query)
             ->addIndexColumn()
             ->addColumn('action', function (Department $department) {
-                $html = '';
+
                 $html = '<a class="bg-green-700 text-white text-xs rounded-sm hover:bg-green-400 p-1 shadow" href="'.route('department.edit',$department->id).'">Edit</a>';
-                $html .= '<a class="bg-red-900 text-xs rounded-sm  p-1 ml-2 shadow" href="'.route('department.destroy',$department->id).'">Delete</a>';
+                $html .= '<a class="bg-green-700 text-xs rounded-sm  p-1 ml-2 shadow" href="'.route('department.destroy',$department->id).'">Delete</a>';
                 return $html;
             })
             ->editColumn('created_at',function (Department $department)
@@ -35,7 +35,7 @@ class DepartmentDataTable extends DataTable
             ->editColumn('updated_at',function (Department $department)
             {
                 return $department->updated_at->diffForHumans();
-            });
+            })->rawColumns(['action']);
     }
 
     /**
@@ -79,16 +79,16 @@ class DepartmentDataTable extends DataTable
     protected function getColumns()
     {
         return [
-            // Column::computed('action')
-            //       ->exportable(false)
-            //       ->printable(true)
-            //       ->width(60)
-            //       ->addClass('text-center'),
-            Column::make('DT_RowIndex')->title('SL')->searchable(false)->orderable(false),
+            Column::make('DT_RowIndex')->title('SL')->searchable(false)->orderable(false)->addClass('text-center'),
             Column::make('name')->title('Department Name'),
-            Column::make('created_at')->title('Create Time'),
-            Column::make('updated_at')->title('Last Update'),
-            Column::make('action')->title('Action')->searchable(false)->orderable(false),
+            Column::make('created_at')->title('Create Time')->addClass('text-center'),
+            Column::make('updated_at')->title('Last Update')->addClass('text-center'),
+            Column::computed('action')
+                  ->exportable(false)
+                  ->printable(false)
+                  ->width(60)
+                  ->addClass('text-center'),
+
         ];
     }
 
